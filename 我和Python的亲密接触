@@ -1,0 +1,63 @@
+#记录Python的学习进程
+
+#第001讲：我和Python的第一次亲密接触
+#可以直接通过print()来对数字进行运算等：
+print (5 + 8)				          #打印5+8的值
+print (365 * 24 * 60 * 60)	  #计算一年有多少秒
+
+#第002讲：用Python设计第一个游戏
+#用input()接收键盘输入
+#要求输入姓名，并且打印"你好,'姓名'"
+name = input('请输入您的姓名：')
+print ('你好，'+ name + '!')
+#==============================================#
+#if进行逻辑判断
+#要求用户输入1到100之间数字并判断，输入符合要求打印“A”，不符合要求则打印“B”
+temp = input('请输入1-100之间的数字')
+number = int (temp)			#获取输入的整数
+if (1 <= number <= 100):
+	print ('A')
+else:
+	print ('B')
+
+#第003讲：插曲之变量和字符串
+#变量的使用
+#使用变量计算一年有多少秒
+Oneyear = 365
+Oneday = 24
+Onehour = 60
+Oneminute = 60
+result = Oneyear * Oneday * Onehour * Oneminute
+print (result)
+
+#第004讲：改进我们的小游戏
+#输入一个数，并且打印从1到输入的数
+temp = input ('请输入一个整数：')
+number = int(temp)
+num = 1
+while number:
+	print (num)
+	num += 1
+	number -= 1
+#==============================================#
+#输入一个数，打印输入数-1的空格，与输入数的*
+temp = input ('请输入一个数字：')
+number = int(temp)
+while number:
+	print (' ' * (number-1) + '*' * number)
+	number -= 1
+#==============================================#
+#打印99乘法表
+numb = 9
+num = 9
+while numb:
+	while num:
+		print (numb,"*",num,"=",numb*num,end = '  ')
+		num -= 1
+		if num == 0:
+			print ("\n")
+	numb -= 1
+	num = numb
+
+#第005讲：闲聊之Python的数据类型
+
