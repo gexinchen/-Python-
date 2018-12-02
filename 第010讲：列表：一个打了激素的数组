@@ -1,0 +1,36 @@
+#假设给定以下列表：
+#member = ['A', 'B', 'C', 'D', 'E']
+#要求将列表修改为：
+#member = ['A', 88, 'B', 90, 'C', 85, 'D', 90, 'E', 88]
+#方法1
+#list.insert (插入位置，插入数据)
+member1 = ['A', 'B', '迷途', '怡静', '秋舞斜阳']
+member1.insert (1,88)
+member1.insert (3,90)
+member1.insert (5,85)
+member1.insert (7,90)
+member1.insert (9,88)
+#方法二
+member2 = ['A', 'B', 'C', 'D', 'E']
+member2 = ['A', 88, 'B', 90, 'C', 85, 'D', 90, 'E', 88]
+
+
+#利用 for 循环打印上边 member 列表中的每个内容
+member = ['A', 88, 'B', 90, 'C', 85, 'D', 90, 'E', 88]
+for i in range (0,len(member)):
+	print (member[i])
+
+
+#利用 for 循环打印上边 member 列表中的每个内容
+#第一种方法
+member = ['A', 88, 'B', 90, 'C', 85, 'D', 90, 'E', 88]
+for i in range (0,len(member)):
+	print (member[i],end = " ")
+	if i % 2 != 0:
+		print ("")
+#第二种方法
+member = ['A', 88, 'B', 90, 'C', 85, 'D', 90, 'E', 88]
+for i in range (0,len(member)):
+	print (member[i],end = " ")
+	if type(member[i]) == type(1):
+		print ("")
