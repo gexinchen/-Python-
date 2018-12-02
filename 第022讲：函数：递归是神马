@@ -1,0 +1,30 @@
+#使用递归编写一个求阶乘的函数
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+print (factorial(n=998))
+
+
+#使用递归编写一个 power() 函数模拟内建函数 pow()，即 power(x, y) 为计算并返回 x 的 y 次幂的值。
+def power(x,y):
+    if y == 0:
+        return 1
+    else:
+        return x * power(x,y-1)
+print (power(2,5))
+
+
+#使用递归编写一个求最大公约数的函数
+def gcd(m, n):
+    while True:
+        r = m % n
+        m = n
+        n = r
+        if r != 0:
+            continue
+        else:
+            return m
+            break
+print(gcd(123456, 7891))
