@@ -1,0 +1,93 @@
+#边写一个程序分开小甲鱼和客服的对话，遇到====自动创建信文件
+f = open('record.txt')
+num = 1
+for data in f:
+    if data[0:3] == '小甲鱼':
+        a = open('boy' + str(num) + '.txt', 'a')
+        a.write(data[4::])
+        a.close()
+    if data[0:3] == '小客服':
+        b = open('gril_'+str(num)+'.txt', 'a')
+        b.write(data[4::])
+        b.close()
+    if data[0:10] == '==========':
+        num += 1
+        
+        
+#编写一个程序，接受用户的输入并保存为新的文件
+FileName = input('请输入文件名：')
+f = open(FileName,'a')
+print ('请输入内容[单独输入\':w\'保存退出]：')
+while True:
+    temp = input('')
+    if temp == ':w':
+        break
+    else:
+        f.write(temp)
+        f.write('\n')
+f.close()
+
+
+#编写一个程序，比较用户输入的两个文件，如果不同，显示出所有不同处的行号与第一个不同字符的位置
+def file_compare(file1, file2):
+    f1 = open(file1)
+    f2 = open(file2)
+    count = 0 # 统计行数
+    differ = [] # 统计不一样的数量
+    for line1 in f1:
+        line2 = f2.readline()
+        count += 1
+        if line1 != line2:
+            differ.append(count)
+    f1.close()
+    f2.close()
+    return differ
+file1 = input('请输入需要比较的头一个文件名：')
+file2 = input('请输入需要比较的另一个文件名：')
+differ = file_compare(file1, file2)
+if len(differ) == 0:
+    print('两个文件完全一样！')
+else:
+    print('两个文件共有【%d】处不同：' % len(differ))
+    for each in differ:
+        print('第 %d 行不一样' % each)
+
+
+#编写一个程序，当用户输入文件名和行数（N）后，将该文件的前N行内容打印到屏幕上
+FileName = input('请输入需要打开文件的路径（C：\\test.txt）：')
+num = int(input('请输入要显示该文件的前几行：'))
+f = open(FileName,'r')
+file_to_list = list(f)
+print ('文件',FileName,'的前',num,'行内容如下：')
+for i in file_to_list[:num]:
+    print (i)
+
+
+#批量替换
+def file_replace(file_name, rep_word, new_word):
+    f_read = open(file_name)
+
+    content = []
+    count = 0
+
+    for eachline in f_read:
+        if rep_word in eachline:
+            count = eachline.count(rep_word) #count感觉应该用这个
+            eachline = eachline.replace(rep_word, new_word)
+        content.append(eachline)
+    decide = input('\n文件 %s 中共有%s个【%s】\n您确定要把所有的【%s】替换为【%s】吗？\n【YES/NO】：' \
+                   % (file_name, count, rep_word, rep_word, new_word))
+    if decide in ['YES', 'Yes', 'yes']:
+        f_write = open(file_name, 'w')
+        f_write.writelines(content)
+        f_write.close()
+    f_read.close()
+file_name = input('请输入文件名：')
+rep_word = input('请输入需要替换的单词或字符：')
+new_word = input('请输入新的单词或字符：')
+file_replace(file_name, rep_word, new_word)
+
+
+
+
+
