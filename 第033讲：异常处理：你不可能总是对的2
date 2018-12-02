@@ -1,0 +1,56 @@
+#优化程序错误输出
+try:
+    for i in range(3):
+        for j in range(3):
+            if i == 2:
+                raise KeyboardInterrupt
+            print (i,j)
+except KeyboardInterrupt:
+    print ('退出啦！')
+import random
+secret = random.randint(1,10)
+print('------------------我爱鱼C工作室------------------')
+try:
+    temp = input("不妨猜一下小甲鱼现在心里想的是哪个数字：")
+    guess = int(temp)
+    while guess != secret:
+        temp = input("哎呀，猜错了，请重新输入吧：")
+        guess = int(temp)
+        if guess == secret:
+            print("我草，你是小甲鱼心里的蛔虫吗？！")
+            print("哼，猜中了也没有奖励！")
+        else:
+            if guess > secret:
+                print("哥，大了大了~~~")
+            else:
+                print("嘿，小了，小了~~~")
+    print("游戏结束，不玩啦^_^")
+except ValueError:
+    print ('输入的类型必须是一个整数！')
+except EOFError:
+    print ('取消输入！')
+except KeyboardInterrupt:
+	print ('终止程序！')
+
+
+#尝试一个新的函数 int_input()，当用户输入整数的时候正常返回，否则提示出错并要求重新输入。
+def int_input(prompt=''):
+    while True:
+        try:
+            int(input(prompt))
+            break
+        except ValueError:
+            print('出错，您输入的不是整数！')
+int_input('请输入一个整数：')
+
+
+#把文件关闭放在 finally 语句块中执行还是会出现问题，像下边这个代码，当前文件夹中并不存在"My_File.txt"这个文件
+#那么程序执行起来会发生什么事情呢？你有办法解决这个问题吗？F
+try:
+    f = open('My_File.txt') # 当前文件夹中并不存在"My_File.txt"这个文件T_T
+    print(f.read())
+except OSError as reason:
+    print('出错啦：' + str(reason))
+finally:
+    if 'f' in locals(): # 如果文件对象变量存在当前局部变量符号表的话，说明打开成功
+        f.close()
