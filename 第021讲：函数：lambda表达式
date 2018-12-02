@@ -1,0 +1,29 @@
+#请使用lambda表达式将下边函数转变为匿名函数？
+#def fun_A(x, y=3):
+#    return x * y
+fun_A = lambda x,y=3 :  x * y
+print (fun_A(3))
+
+
+#请将下边的匿名函数转变为普通的屌丝函数？
+#lambda x : x if x % 2 else None
+def sd(x):
+    if x % 2:
+        return x
+    else:
+        return None
+print (sd(54))
+
+
+#利用filter()和lambda表达式快速求出100以内所有3的倍数吗？
+g = list(filter(lambda x : x % 3 == 0,range(101)))
+print (g)
+
+
+#利用列表推导式代替filter()和lambda组合
+c = [x for x in range(101) if x % 3 == 0]
+print (c)
+
+
+#使用采用map和lambda，写出实现zip功能
+list(map(lambda x, y : [x, y], [1, 3, 5, 7, 9], [2, 4, 6, 8, 10]))
