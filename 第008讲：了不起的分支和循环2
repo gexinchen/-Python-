@@ -1,0 +1,16 @@
+#执行1 if 条件成立 else 执行2
+#将以下代码修改为三元操作符实现
+'''
+x, y, z = 6, 5, 4
+if x < y:
+    small = x
+    if z < small:
+        small = z
+elif y < z:
+    small = y
+else:
+    small = z
+'''
+x, y, z = 6, 5, 4
+small = x if (x < y and x < z) else (y if y < z else z)
+print (small)
