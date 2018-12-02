@@ -1,0 +1,29 @@
+#打开文件
+f = open('E:/test.txt')
+#迭代打印文件的数据
+for data in f:
+    print (data)
+#将文件内容转化为列表
+list(f)
+#读取文件数据,含参数
+f.read()
+#获取文件中当前指针,含参数
+f.tell()
+#移动文件指针,含参数
+f.seek(0)
+
+
+#尝试将文件(OpenMe.mp3),打印到屏幕上
+f = open('OpenMe.Mp3','r')
+for data in f:
+    print (data)
+f.close()
+
+
+#将文件(OpenMe.mp3)保存成(OpenMe.mp3)
+f = open('OpenMe.Mp3','r')
+a = open('OpenMe.txt','w')
+f.seek(0)
+a.write(f.read())
+a.close()
+f.close()
