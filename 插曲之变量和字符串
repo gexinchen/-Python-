@@ -1,0 +1,7 @@
+#使用变量计算一年有多少秒
+Oneyear = 365
+Oneday = 24
+Onehour = 60
+Oneminute = 60
+result = Oneyear * Oneday * Onehour * Oneminute
+print (result)
