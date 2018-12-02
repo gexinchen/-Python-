@@ -1,0 +1,10 @@
+#判断给定年份是否为闰年
+#闰年:能被4整除但不能被100整除,或者能被400整除都是闰年。
+temp = input ('请输入年份：')
+while not temp.isdigit():
+    temp = input("抱歉，您的输入有误，请输入一个整数：")
+year = int(temp)
+if ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0):
+	print (year,"年，为闰年")
+else:
+	print (year,"年，不是闰年")
