@@ -1,0 +1,32 @@
+#编写一个简单的查询程序
+name = input ('请输入待查找到的用户名：')
+score = [['A',85],['B',90],['C',90]]
+IsFind = False
+for each in score:
+    if name == each[0]:
+        print (name + '的得分是：',each[1])
+        break
+if IsFind == False:
+    print ('查找的数据不存在！')
+
+
+#编写一个判断列表中最小值的程序
+def min(x):
+    temp = x[0]
+    for i in x:
+        if i < temp:
+            temp = i
+    return temp
+print (min([1,2,3,4,5,6,7,8,9,0]))
+
+
+#编写一个能计算出列表所有数字的和，并且自动忽略非数字的程序
+def sumo(x):
+    suma = 0
+    for i in x:
+        if (type(i) == int) or (type(i) == float):
+            suma = suma + i
+        else:
+            continue
+    return suma
+print (sumo([1,2,3,4,'a',True,False]))
