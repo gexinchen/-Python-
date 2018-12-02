@@ -1,0 +1,66 @@
+#尝试一下将数据（'F': 70, 'C': 67, 'h': 104, 'i': 105, 's': 115）创建为一个字典并访问键 'C' 对应的值
+dict1 = {'F':70,'C':67,'h':104,'i':105,'s':115}
+print (dict1['C'])
+
+
+#创建字典的五种方法
+a = dict(one=1, two=2, three=3)
+b = {'one': 1, 'two': 2, 'three': 3}
+c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+d = dict([('two', 2), ('one', 1), ('three', 3)])
+e = dict({'three': 3, 'one': 1, 'two': 2})
+
+
+#编写一个通讯录程序
+print ('|--- 欢迎进入通讯录程序 ---|')
+print ('|--- 1 ：查询联系人资料 ---|')
+print ('|--- 2 ：插入新的联系人 ---|')
+print ('|--- 3 ：删除已有联系人 ---|')
+print ('|--- 4 ：退出通讯录程序 ---|')
+book = {'小甲鱼':'123456789'}
+while True:
+    num = int(input('请输入相关指令代码：'))
+    if num == 1:
+        Name  = input('请输入联系人姓名：')
+        # 判断输入值是否在字典中
+        if Name in book:
+            print (Name,':',book[Name])
+            continue
+        else:
+            print ('找不到该联系人')
+            continue
+    if num == 2:
+        NewName = input('请输入联系人姓名：')
+        # 已有同名存在
+        if (NewName) in book:
+            print ('您输入的用户名在通信录中已存在 -->',NewName,':',book[NewName])
+            judge = input('是否修改用户资料（YES/NO）:')
+            while judge not in ['YES','yes','NO','no']:
+                judge = input('输入错误，请重新输入,是否修改用户资料（YES/NO）:')
+            if (judge in ['YES','yes']):
+                NewTel = input('请输入用户联系电话：')
+                book[NewName] = (NewTel)
+            if (judge in ['NO','no']):
+                continue
+        #没有同名存在
+        else:
+            NewTel = input('请输入用户联系电话：')
+            book[NewName] = (NewTel)
+            continue
+    if num == 3:
+        DelName = input('请输入联系人姓名：')
+        #判断联系人是否在字典中
+        if DelName in book:
+            judge = input('是否删除该联系人（YES/NO）')
+            while judge not in ['YES','yes','NO','no']:
+                judge = input('输入错误,请重新输入,是否删除该联系人（YES/NO）')
+            if judge in ['YES','yes']:
+                book.pop(DelName)
+            if judge in ['NO','no']:
+                continue
+        else:
+            print ('查找不到该联系人')
+            continue
+    if num == 4:
+        print('|--- 感谢使用通讯录程序 ---|')
+        break
