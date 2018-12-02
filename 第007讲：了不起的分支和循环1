@@ -1,0 +1,12 @@
+#按照 100 分制，90 分以上成绩为 A，80 到 90 为 B，60 到 80 为 C，60 以下为 D，写一个程序，当用户输入分数，自动转换为ABCD 的形式打印。
+num = int(input ("请输入0~100之间的数字："))
+if (90 <= num <= 100):
+	print ("A")
+elif (80 <= num < 90):
+	print ("B")
+elif (60 <= num < 80):
+	print ("C")
+elif (0 <= num < 60):
+	print ("D")
+else:
+	print ("输入数字范围错误")
