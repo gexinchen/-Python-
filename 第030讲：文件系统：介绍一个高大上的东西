@@ -1,0 +1,86 @@
+#编写一个程序，统计当前目录下每个文件类型的文件数
+import os
+import os.path
+FileName = os.listdir('.')
+FileNumber = len(FileName)
+FileType = []
+FileTypeNumber = []
+for i in range(0,FileNumber):
+    (Name,Type)  = os.path.splitext(FileName[i])
+    if Type == '':
+        Type = '文件夹'
+    #把所有文件后缀添加进同个列表
+    FileType.append(Type)
+    #计算后缀有几种，并且添加进列表
+    if Type not in FileTypeNumber:
+        FileTypeNumber.append(Type)
+for l in range(0,len(FileTypeNumber)):
+    count = 0
+    for a in range(0,len(FileType)):
+        if FileTypeNumber[l] in FileType[a]:
+            count += 1
+            continue
+    print ('该文件下共有的类型['+FileTypeNumber[l]+']的文件%d次'%count)
+
+
+#编写一个程序，计算当前文件夹下所有文件的大小，程序实现如图：
+import os
+import os.path
+AllFile = os.listdir('.')
+print (AllFile)
+for name in AllFile:
+    print (name + '[%dBytes]'%os.path.getsize(name))
+    
+    
+#编写一个程序，用户输入文件名以及开始搜索的路径，搜索该文件是否存在。如遇到文件夹，则进入文件夹继续搜索，程序实现如图：
+#待查找目录
+import os
+Catalog = input('请输入待寻找的初始目录：')
+File = input('请输入需要查找的目标文件：')
+for i in os.walk(Catalog):
+    #print (i)
+    if File in i[2]:
+        print (str(i[0])+'\\'+File)
+        
+        
+#编写一个程序，用户输入开始搜索的路径，查找该路径下（包含子文件夹内）所有的视频格式文件（要求查找mp4 rmvb, avi的格式即可）
+#并把创建一个文件（vedioList.txt）存放所有找到的文件的路径
+import os
+import os.path
+Catalog = input('请输入待寻找的初始目录：')
+MediaType = ['.mp4','.rmvb','.avi']
+f = open('vedioList.txt','a')
+for i in os.walk(Catalog):
+    for j in range(0,len(i[2])):
+        (Name,Type) = os.path.splitext(i[2][j])
+        #print (Type)
+        if Type in MediaType:
+            a = str(i[0]) + '\\' + str(i[2][j])
+            f.write(a)
+            f.write('\n')
+f.close()
+
+
+#编写一个程序，用户输入关键字，查找当前文件夹内（如果当前文件夹内包含文件夹，则进入文件夹继续搜索）
+#所有含有该关键字的文本文件（.txt后缀），要求显示该文件所在的位置以及关键字在文件中的具体位置（第几行第几个字符）
+import os
+import os.path
+Catalog = '.'
+Str = input('请将该脚本放于待查找的文件夹内,请输入关键字：')
+yesorno = input('请问是否需要打印关键字['+Str+']在文件夹中的具体位置(YES/NO)：')
+while yesorno not in ['YES','NO']:
+    yesorno = input('输入错误,请输入(YES/NO)：')
+for i in os.walk(Catalog):
+    for j in i[2]:
+        (Name,Type) = os.path.splitext(j)
+        if Type == '.txt':
+            f = open(j)
+            num = 1
+            for k in f:
+                if Str in k:
+                    print('在文件[',os.getcwd(),j,']中找到关键字',Str)
+                    N = k.find(Str)
+                    if yesorno == 'YES':
+                        print ('关键字出现在第',num,'行','第[%d]个位置'%N)
+                        num += 1
+
