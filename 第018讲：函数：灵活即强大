@@ -1,0 +1,49 @@
+#0. 编写一个符合以下要求的函数：
+#    a) 计算打印所有参数的和乘以基数（base=3）的结果
+#    b) 如果参数中最后一个参数为（base=5），则设定基数为5，基数不参与求和计算。
+def mFun(*param,base = 3):
+    sum = 0
+    if base == 5:
+        for i in param:
+            sum += i
+    else:
+        for i in param:
+            sum += i
+        sum *= base
+    print (sum)
+mFun(3,4,5,6,base = 5)
+
+
+#寻找水仙花数
+#题目要求：如果一个3位数等于其各位数字的立方和，则称这个数为水仙花数。编写这样一个函数
+def WaterGodFlower():
+    sum = 0
+    print ('所有的水仙花数分别是：')
+    for i in range(100,999):
+        b = i // 100
+        s = i % 100 // 10
+        g = i % 100 % 10
+        if (b ** 3 + s ** 3 + g ** 3) == i:
+            sum += 1
+            print (i)
+            continue
+        else:
+            continue
+    print('总共有：%d个'%sum)
+WaterGodFlower()
+
+
+#编写一个函数 findstr()，该函数统计一个长度为 2 的子字符串在另一个字符串中出现的次数,并且最后计算总次数
+def findstr(str1,str2):
+    count = 0
+    if str2 not in str1:
+        print ('在目标字符中没有找到子字符')
+    else:
+        for i in range(0,len(str1)):
+            if str2[0] == str1[i]:
+                if str2[1] == str1[i + 1]:
+                    count += 1
+    print ('子字符串在目标中出现的次数为%d次'%count)
+str1 = input('请输入目标字符串：')
+str2 = input('请输入子字符串（两个字符）')
+findstr(str1,str2)
