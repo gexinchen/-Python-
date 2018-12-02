@@ -1,0 +1,17 @@
+#如果想要显示Pi = 3.14，format前边的字符串应该怎么填写呢？
+#' '.format('Pi = ', 3.1415)
+'{0}{1:.2f}'.format('Pi = ', 3.1415)
+
+
+#编写一个进制转换程序
+temp = input('请输入一个整数(输入Q结束程序)')
+while (temp != "Q") and (temp.isdigit() == False):
+	temp = input('输入错误，请输入一个整数(输入Q结束程序)')
+while True:
+	if temp == 'Q':
+		break
+	else:
+		print ('十进制 -> 十六进制：' , int(temp) , '->', '%#x' % int(temp))
+		print ('十进制 -> 八进制：' , int(temp) , '->' ,'%#o' % int(temp))
+		print ('十进制 -> 二进制：' , int(temp) , '->' , bin(int(temp)))
+		temp = input('请输入一个整数(输入Q结束程序)')
