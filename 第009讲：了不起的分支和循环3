@@ -1,0 +1,38 @@
+#设计一个验证用户密码程序，用户只有三次机会输入错误，不过如果用户输入的内容中包含"*"则不计算在内。
+password = input ("请输入密码：")
+bingo = "Star"
+num = 2
+while "*" in password:
+	print ("密码中不能含有“*”号！请重新输入")
+	password = input ("请输入密码：")
+while 0 < num <= 2:
+	if password == bingo:
+		print ("密码正确，进入程序...")
+		break
+	else:
+		print ("密码错误!您还有",num,"次机会")
+		num -= 1
+		password = input ("请输入密码：")
+		if num == 0:
+			print ("密码错误!您还有",num,"次机会")
+			break
+
+
+#编写一个程序，求 100~999 之间的所有水仙花数
+for i in range(100,1000):
+	a = i % 10
+	b = (i % 100) // 10
+	c = i // 100
+	flower = a ** 3 + b ** 3 + c ** 3
+	if i == flower:
+		print (i)
+
+
+#有红、黄、蓝三种颜色的球，其中红球 3 个，黄球 3 个，绿球 6 个。先将这 12 个球混合放在一个盒子中，从中任意摸出 8 个球，编程计算摸出球的各种颜色搭配。
+print('red\tyellow\tgreen')
+for red in range(0, 4):
+    for yellow in range(0, 4):
+        for green in range(2, 7):
+            if red + yellow + green == 8:
+                # 注意，下边不是字符串拼接，因此不用“+”哦~
+                print(red, '\t', yellow, '\t', green)
