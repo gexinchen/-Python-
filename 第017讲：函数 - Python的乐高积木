@@ -1,0 +1,36 @@
+#编写一个计算x的y次幂的函数
+def power(x,y):
+    return x ** y
+print (power (2,3))
+
+
+#编写一个球最大公约数的函数
+def gcd(m,n):
+    while True:
+        r = m % n
+        m = n
+        n = r
+        if r != 0:
+            continue
+        else:
+            return m
+            break
+print (gcd(123456,7890))
+
+
+#编写一个二进制转换的函数
+def bin(x):
+    a = []
+    while True:
+        if x != 0:
+            q = x % 2
+            x = x // 2
+            a.append(q)
+            continue
+        if (x == 0):
+            b = a[::-1]
+            c = [str(i) for i in b]
+            d = ''.join(c)
+            break
+    return print('0b' + d)
+bin(2)
