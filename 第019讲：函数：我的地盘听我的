@@ -1,0 +1,27 @@
+#编写一个函数，判断传入的字符串参数是否为“回文联”
+def loop():
+    str1 = input('请输入一句话：')
+    str2 = str1[::-1]
+    if str1 == str2:
+        print ('是回文联')
+    else:
+        print ('不是回文联')
+loop()
+
+
+#1. 编写一个函数，分别统计出传入字符串参数（可能不只一个参数）的英文字母、空格、数字和其它字符的个数。
+def count(*str1):
+    number = len(str1)
+    for y in range(0,len(str1)):
+        yw,sz,kg,qt = 0,0,0,0
+        for i in str1[y]:
+            if i.isalpha() == True:
+                yw += 1
+            if i == ' ':
+                kg += 1
+            if i.isdigit() == True:
+                sz += 1
+            if (i.isalpha() != True) and (i.isdigit() != True) and (i != ' '):
+                qt += 1
+        print ('第',y+1,'个字符串中：英文字母',yw,'个,数字',sz,'个,空格',kg,'个,其他',qt,'个')
+count ('i live you,520')
