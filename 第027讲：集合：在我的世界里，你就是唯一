@@ -1,0 +1,11 @@
+#创建集合
+set1 = {1,2,3}
+#在集合中添加元素
+set1.add(4)
+#在集合中删除元素
+set1.remove(4)
+#获取集合元素(集合是无需的，只能同过迭代获取)
+for i in set1:
+	print (i)
+#锁定集合不可改变
+set1 = frozenset(set1)
