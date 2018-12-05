@@ -1,3 +1,24 @@
+#按照以下要求定义一个游乐园门票的类，并尝试计算2个成人+1个小孩平日票价。
+#平日票价100元
+#周末票价为平日的120%
+#儿童半票
+class Game():
+    def __init__(self,week = False,m=0,n=0):
+        self.m = m
+        self.n = n
+        self.price = 100
+        if week == True:
+            self.rprice = self.price * 1.2 * self.m
+            self.child = self.rprice * 0.5 * self.n
+        else:
+            self.rprice = self.price * self.m
+            self.child = self.rprice * 0.5 * self.n
+    def sum(self):
+        s = self.rprice +self.child
+        return s
+print (Game(True,1,1).sum())
+
+
 #游戏编程：按以下要求定义一个乌龟类和鱼类并尝试编写游戏。
 #假设游戏场景为范围（x, y）为0<=x<=10，0<=y<=10
 #游戏生成1只乌龟和10条鱼
